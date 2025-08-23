@@ -4,6 +4,7 @@ import './App.css'
 import FocusInput from './components/FocusInput'
 import ThemeSwitcher from './components/ThemeSwitcher' 
 import WindowSizeApp from './components/WindowSizeTracker' 
+import OnlineOflineNavigator from './components/OnlineOflineNavigator' 
 function App() {
   const [count, setCount] = useState(0)
 
@@ -11,7 +12,8 @@ function App() {
   // <JokeApp/>
   // <FocusInput/>
   // <ThemeSwitcher/>
-  <WindowSizeApp/>
+  // <WindowSizeApp/>
+  <OnlineOflineNavigator/>
   )
 }
 
