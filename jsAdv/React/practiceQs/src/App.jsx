@@ -10,12 +10,14 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-  // <JokeApp/>
+ <div>
+   {/* // <JokeApp/>
   // <FocusInput/>
-  // <ThemeSwitcher/>
   // <WindowSizeApp/>
   // <OnlineOflineNavigator/>
-  <Parent/>
+  // <Parent/> */}
+  <ThemeSwitcher/>
+ </div>
   )
 }
 
