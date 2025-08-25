@@ -5,6 +5,7 @@ function Page({ url }) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
     const [scrollpercentage,setScrollPercentage]=useState(0)
+    console.log(scrollpercentage)
   async function callToapi() {
     try {
       const response = await fetch(url)
@@ -24,24 +25,27 @@ function Page({ url }) {
   }, [url])
 
   function handleScroll() {
-    console.log(
-      document.body.scrollTop,
-      document.documentElement.scrollTop,
-      document.documentElement.scrollHeight,
-      document.documentElement.clientHeight
-    )
+    // console.log(
+    //   document.body.scrollTop,
+    //   document.documentElement.scrollTop,
+    //   document.documentElement.scrollHeight,
+    //   document.documentElement.clientHeight
+    // )
 
-    const howMuch=document.documentElement.scrollTop || document.documentElement.clientHeight
+   const howMuchScrolled =
+      document.body.scrollTop || document.documentElement.scrollTop;
 
-     const height =
+    const height =
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight;
 
-    setScrollPercentage((howMuch / height) * 100);
+    setScrollPercentage((howMuchScrolled / height) * 100);
   }
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
+
+    return () => window.removeEventListener('scroll', handleScroll)
   },[])
 
   if (error) {
@@ -52,7 +56,9 @@ function Page({ url }) {
     return <div>Loading data...</div>
   }
   return (
-    <div>
+    <div style={{width:'100%',height:'20px',backgroundColor:'pink'}}>
+        <div style={{backgroundColor:'red',height:'10px',width:`${scrollpercentage}%`,position:'fixed', top:'0px',  transition: 'width 0.2s ease-out',
+          zIndex: 1000,border:'1px solid black'}}>hello</div>
       <h2>Product list</h2>
       {data.map((item, index) => {
         return <p key={index}>{item.title}</p>
