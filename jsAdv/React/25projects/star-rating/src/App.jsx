@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import Star from './components/Star'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
@@ -11,8 +11,11 @@ function App() {
     <div>
 
       <Star/>
+      {/* <JokeApp/> */}
     </div>
   )
 }
+
+
 
 export default App

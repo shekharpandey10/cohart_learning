@@ -5,7 +5,9 @@ import './Star.css'
 function Star({ size = 5 }) {
   const [rating, setRating] = useState(0)
   const [ratingMove, setratingMove] = useState(0)
-
+ const arr= [...Array(5)]
+ console.log(arr)
+// 
   function handleRating(index) {
     console.log(index,"index")
     setRating(index)

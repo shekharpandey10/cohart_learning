@@ -6,6 +6,7 @@ import ThemeSwitcher from './components/ThemeSwitcher'
 import WindowSizeApp from './components/WindowSizeTracker' 
 import OnlineOflineNavigator from './components/OnlineOflineNavigator' 
 import Parent from './components/ThemeProvider'
+import App2 from './components/App2'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -16,7 +17,8 @@ function App() {
   // <WindowSizeApp/>
   // <OnlineOflineNavigator/>
   // <Parent/> */}
-  <ThemeSwitcher/>
+  {/* <ThemeSwitcher/> */}
+  <App2/>
  </div>
   )
 }

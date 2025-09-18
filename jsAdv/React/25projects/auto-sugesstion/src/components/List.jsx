@@ -7,7 +7,6 @@ console.log(data)
     <div>
         {
             data && data.length ? data.map((d,i)=><li key={i} onClick={()=>{
-               
                 setInputValue(d.firstName)
             }
             }
