@@ -1,1 +1,3 @@
-console.log('hello')
+import extension = require("@prisma/client/extension");
+
+@extension.PrismaClient
