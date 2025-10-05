@@ -1,4 +1,4 @@
-'use client'
+
 import { error } from 'console'
 import { useEffect, useState } from 'react'
 
@@ -7,38 +7,26 @@ interface user {
   username: String
 }
 
-export default function user() {
-  const [loading, setloading] = useState(true)
-  const [data, setdata] = useState<user[]>()
-  const [error, setError] = useState(null)
+export default async function user() {
 
-  useEffect(() => {
-    console.log('hello')
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then((res) => res.json())
-      .then((response) => {
-        console.log(response)
-        setdata(response)
-        setloading(false)
-      })
-      .catch((err) => {
-        console.log(err)
-        setError(err)
-        setloading(false)
-      })
-  }, [])
+  
 
-  if (loading) {
-    return <div>loading....</div>
-  }
-  if (error) {
-    return <div>{error}</div>
-  }
+  
+
+  const res=await  fetch('https://jsonplaceholder.typicode.com/users')
+ 
+    const data= await res.json()
+console.log(data)
+
+
+//   if (error) {
+//     return <div>{error}</div>
+//   }
   return (
     <div>
       hello user
       <div>
-        {data?.map((d,i) => (
+        {data?.map((d:{},i:number) => (
           <div key={i}>
            {d.name}---{d.username}
           </div>
