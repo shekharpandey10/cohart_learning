@@ -1,4 +1,3 @@
-
 import { error } from 'console'
 import { useEffect, useState } from 'react'
 
@@ -8,27 +7,25 @@ interface user {
 }
 
 export default async function user() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/users')
+  console.log('pandey')
+  new Promise((r) => setTimeout(()=>{
+    console.log('hello')
+  }, 3000))
+  console.log('shekhar')
+  const data = await res.json()
+  console.log(data)
 
-  
-
-  
-
-  const res=await  fetch('https://jsonplaceholder.typicode.com/users')
- 
-    const data= await res.json()
-console.log(data)
-
-
-//   if (error) {
-//     return <div>{error}</div>
-//   }
+  //   if (error) {
+  //     return <div>{error}</div>
+  //   }
   return (
     <div>
       hello user
       <div>
-        {data?.map((d:{},i:number) => (
+        {data?.map((d: {}, i: number) => (
           <div key={i}>
-           {d.name}---{d.username}
+            {d.name}---{d.username}
           </div>
         ))}
       </div>
