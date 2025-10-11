@@ -28,7 +28,7 @@ wss.on('connection', (socket) => {
         if (user) {
           console.log('user is already present')
         } else {
-          console.log(allUser, 'sifjaljflka')
+          // console.log(allUser, 'sifjaljflka')
           allUser[roomId]?.push(socket)
           console.log('user added')
         }
@@ -53,7 +53,8 @@ wss.on('connection', (socket) => {
     //  console.log(data)
   })
 
-  socket.on('disconnect', () => {
+  socket.on('close', () => {
+    console.log('disconnect the user ')
     allSocket = allSocket.filter((x) => x != socket)
   })
 })
